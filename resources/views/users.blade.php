@@ -13,12 +13,10 @@
     <div class="card">
         <div class="card-header">
             Crud For Test
-            <a href="/add/user" class="btn btn-success btn-sm float-end">Add Student</a>
-            @if (Session::has('success'))
-                <span class="alert alert-success p-2">{{Session::get('success') }}</span>
-            @endif
+            <a href="{{ url('add/user') }}" class="btn btn-success btn-sm float-end">Add Student</a>
         </div>
         <div class="card-body">
+
             <table class="table table-sm table-striped table-border">
                 <thead>
                     <td>S no:</td>
@@ -40,13 +38,11 @@
                         <td>{{ $item->phone_number }}</td>
                         <td>{{ $item->register_date }}</td>
                         <td>{{ $item->password }}</td>
-                        <td>{{ $item->address }}</td>
-                        <td><a href="{/edit/{{ $item->id }}" class="btn btn-primary btn-sm ">Edit</a></td>
+                        <td>{{ $item->address ? $item->address->address : 'Address not available' }}</td>
+                        <td><a href="{{route('editform',$item->id)}}" class="btn btn-primary btn-sm ">Edit</a></td>
                         <td><a href="/delete/{{ $item->id }}" class="btn btn-secondary btn-sm ">Delete</a></td>
                     </tr>
-
                     @endforeach
-
                     @endif
                 </tbody>
             </table>

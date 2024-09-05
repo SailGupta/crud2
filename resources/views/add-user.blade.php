@@ -11,51 +11,58 @@
 <body>
 <div class="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-center">
             Add New Student
-            @if (Session::has('fail'))
-                <span class="text-danger">{{Session::get('fail') }}</span>
-            @endif
         </div>
         <div class="card-body mt-2">
             <form action="{{route('store')}}" method="POST">
                 @csrf
                   <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Full Name</label>
-                    <input type="text" name="name" id="formGroupExampleInput" value="{{ old('full_name') }}" placeholder="Full Name">
+                    <label for="" class="form-label">Full Name</label>
+                    <input type="text" name="name" class="name form-control" value="{{ old('full_name') }}" placeholder="Full Name">
                     @error('name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput2" class="form-label">Email</label>
-                    <input type="email" name="email" class="email" value="{{ old('email') }}" placeholder="Email">
+                  <div class="mb-4">
+                    <label for="" class="form-label">Email</label>
+                    <input type="email" name="email" class="email form-control" value="{{ old('email') }}" placeholder="Email">
                     @error('email')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput2" class="form-label">Phone Number</label>
-                    <input type="number" name="phone_number" class="phone_number" value="{{ old('phone_number') }}" placeholder="Email">
+                  <div class="mb-4">
+                    <label for="" class="form-label">Phone Number</label>
+                    <input type="text" name="phone_number" class="phone_number form-control" value="{{ old('phone_number') }}" placeholder="Enter phone number">
                     @error('phone_number')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput2" class="form-label">Password</label>
-                    <input type="number" name="password" class="password" value="{{ old('password') }}" placeholder="Password">
+                  <div class="mb-4">
+                    <label for="" >Password</label>
+                    <input type="number" name="password" class="password form-control" value="{{ old('password') }}" placeholder="Password">
                     @error('password')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput2" class="form-label">Registration Date</label>
-                    <input type="date" name="register_date" class="register_date" value="{{ old('register_date') }}" placeholder="Fill Register Date">
+                  <div class="mb-4">
+                    <label for="" class="form-label">Registration Date</label>
+                    <input type="date" name="register_date" class="register_date form-control" value="{{ old('register_date') }}" placeholder="Fill Register Date">
                     @error('register_date')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
+                  <div class="mb-4">
+                    <label for="" class="form-label">Address</label>
+                    <input type="text" name="address" class="address form-control" value="{{ old('address') }}" placeholder="Fill Your Address">
+                    @error('address')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+
                   <button type="submit" class="btn btn-success">Save</button>
+                  <a href="{{ url('/users') }}" class="btn btn-secondary">Back</a>
+
             </form>
         </div>
     </div>

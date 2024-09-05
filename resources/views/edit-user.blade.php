@@ -12,10 +12,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            Add New Student
-            @if (Session::has('fail'))
-                <span class="text-danger">{{Session::get('fail') }}</span>
-            @endif
+            Update Student Data
         </div>
         <div class="card-body mt-2">
             <form action="{{route('edituser')}}" method="POST">
@@ -56,7 +53,15 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
+                  <div class="mb-3">
+                    <label for="" class="form-label">Address</label>
+                    <input type="text" name="address" class="address" value="{{ $user->address }}" placeholder="Fill Address">
+                    @error('address')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
                   <button type="submit" class="btn btn-success">Save</button>
+                  <a href="{{ url('add/user') }}" class="btn btn-secondary">Back</a>
             </form>
         </div>
     </div>
